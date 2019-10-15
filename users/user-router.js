@@ -12,7 +12,6 @@ router.get('/users', protected, (req, res) => {
         .catch(err => res.send(err));
   });
 
-
 router.post('/register', (req, res) => {
     const user = req.body;
     const hash = bcrypt.hashSync(user.password, 12)
@@ -27,10 +26,6 @@ router.post('/register', (req, res) => {
             res.status(500).json(err);
         });
     });
-
-
-
-
 
 router.post('/login', (req, res) => {
     const { username, password } = req.body;
@@ -55,8 +50,8 @@ router.post('/login', (req, res) => {
 
 
 
-
 /////////////////////////////////////////////////////
+//Middleware
 
 
 function protected(req, res, next){
